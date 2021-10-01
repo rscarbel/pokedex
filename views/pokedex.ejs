@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ryan Scarbel">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <style>#headings:hover{background-color: rgb(255, 238, 238);cursor:default;}</style>
+  <title>Pokedex</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Pokedex Home</h1>
+    <h3>Explore your caught pokemon!</h3>
+    <div style="display:flex;">
+      <p>Number of pokemon caught: <%=caught.length%></p>
+      <div style="margin-left:25px;display:flex;flex-direction: column;">
+        <h5 style="margin:auto;">Actions</h5>
+        <button><a href="/pokedex/new">Add Pokemon</a></button>
+        <%if (caught.length > 0) {%>
+        <button><a href="/pokedex/release">Release Pokemon</a></button><%}%>
+      </div>
+    </div>
+    <table>
+      <tr id="headings">
+        <th>Name</th>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Image</th>
+      </tr>
+      <%for (let i = 0; i < caught.length; i++ ){%>
+      <tr onclick="location.replace('/pokedex/<%=i%>')">
+        <td><%=pokemon[caught[i] - 1].name%></td>
+        <td><%=pokemon[caught[i] - 1].id%></td>
+        <td><%=pokemon[caught[i] - 1].type[0]%></td>
+        <td><img style="height:3em;" src="<%=pokemon[caught[i] - 1].img%>" alt="<%=pokemon[caught[i] - 1].name%> Image"></td>
+      </tr>
+      <%}%>
+    </table>
+  </div>
+</body>
+</html>
