@@ -17,9 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get('/pokedex/entry/:pokemonId', (req,res) => {
   res.render('entry.ejs', {
-    entry: pokemon[req.params.pokemonID],
-    pokemon : pokemon,
-    caught : caught
+    pokemonData: pokemon[caught[req.params.pokemonID]]
   })
 });
 

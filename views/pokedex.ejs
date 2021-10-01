@@ -31,7 +31,7 @@
         <th>Image</th>
       </tr>
       <%for (let i = 0; i < caught.length; i++ ){%>
-      <tr onclick="location.replace('/pokedex/<%=i%>')">
+      <tr onclick="location.replace('/pokedex/entry/<%=i%>')">
         <td><%=pokemon[caught[i] - 1].name%></td>
         <td><%=pokemon[caught[i] - 1].id%></td>
         <td><%=pokemon[caught[i] - 1].type[0]%></td>

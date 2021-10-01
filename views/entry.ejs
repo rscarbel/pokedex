@@ -12,6 +12,12 @@
 <body>
   <div class="container">
     <h1>View Pokemon</h1>
+    <table>
+        <tr><%=pokemonData.name%></tr>
+        <tr><%=pokemonData.id%></tr>
+        <tr>pokemonData.type[0]%></tr>
+        <tr><img style="height:3em;" src="<%=pokemonData.img%>" alt="<%=pokemonData.name%> Image"></tr>
+    </table>
     <button><a href="/pokedex">Back to Home</a></button>
     </div>
 </body>
