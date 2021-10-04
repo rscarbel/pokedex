@@ -5,12 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Ryan Scarbel">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/skeleton.css">
   <style>#headings:hover{background-color: rgb(255, 238, 238);cursor:default;}</style>
   <title>Pokedex</title>
 </head>
 <body>
+  <form name="pageForm" action="/pokedex" method="POST">
   <div class="container">
     <h1>Pokedex Home</h1>
     <h3>Explore your caught pokemon!</h3>
@@ -40,5 +41,6 @@
       <%}%>
     </table>
   </div>
+</form>
 </body>
 </html>
