@@ -11,7 +11,6 @@
   <title>Pokedex</title>
 </head>
 <body>
-  <form name="pageForm" action="/pokedex" method="POST">
   <div class="container">
     <h1>Pokedex Home</h1>
     <h3>Explore your caught pokemon!</h3>
@@ -19,9 +18,10 @@
       <p>Number of pokemon caught: <%=caught.length%></p>
       <div style="margin-left:25px;display:flex;flex-direction: column;">
         <h5 style="margin:auto;">Actions</h5>
-        <button><a href="/pokedex/new">Add Pokemon</a></button>
+        <a href="/pokedex/new"></a><button style="color:green;">Add Pokemon</button></a>
         <%if (caught.length > 0) {%>
-        <button><a href="/pokedex/release">Release Pokemon</a></button><%}%>
+        <a href="/pokedex/release"><button style="color:red;">Release Pokemon</button></a>
+        <a href="/pokedex/edit"><button style="color:blue;">Edit Pokemon</button></a><%}%>
       </div>
     </div>
     <table>
@@ -32,7 +32,7 @@
         <th>Image</th>
       </tr>
       <%for (let i = 0; i < caught.length; i++ ){%>
-      <tr onclick="location.replace('/pokedex/entry/<%=i%>')">
+      <tr onclick="location.replace('/pokedex/entry/<%=(pokemon[caught[i] - 1].id - 1)%>')">
         <td><%=pokemon[caught[i] - 1].name%></td>
         <td><%=pokemon[caught[i] - 1].id%></td>
         <td><%=pokemon[caught[i] - 1].type[0]%></td>
@@ -41,6 +41,5 @@
       <%}%>
     </table>
   </div>
-</form>
 </body>
 </html>

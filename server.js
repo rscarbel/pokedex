@@ -64,7 +64,8 @@ app.delete('/pokedex/:indexOfPokemon', (req, res) => {
   // This will remove one fruit from the array
   console.log(req.method)
   // remove the object from the array
-  caught.splice(req.params.indexOfPokemon - 1, 1)
+  console.log(req.params.indexOfPokemon)
+  caught.splice(req.params.indexOfPokemon, 1)
   res.redirect('/pokemon')
 })
 

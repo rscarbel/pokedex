@@ -12,7 +12,7 @@
 <body>
   <div class="container">
     <h1>Release Pokemon</h1>
-    <form action="/pokedex" method="POST"></form>
+
     <table>
       <tr id="headings">
         <th>Name</th>
@@ -23,12 +23,13 @@
       <tr>
         <td><%=pokemon[caught[i] - 1].name%></td>
         <td style="display:flex;justify-content: center;"><img style="height:3em;" src="<%=pokemon[caught[i] - 1].img%>" alt="<%=pokemon[caught[i] - 1].name%> Image"></td>
-        <td><button style="padding: 5px 10px;border-radius:50%;background-color: rgb(190,0,0);color:#FFFFFF;cursor:pointer;" onclick=""><strong>x</strong></button></td>
+        <form action="/pokedex/<%=i%>?_method=DELETE" method="POST">
+        <td><input type="Submit" value="x" style="padding: 5px 10px;border-radius:50%;background-color: rgb(190,0,0);color:#FFFFFF;cursor:pointer;"></td></form>
         <!-- <td><img style="" src="assets/trashcanIcon.png" alt="Trash can icon"></td> -->
       </tr>
       <%}%>
     </table>
-    </form>
+
     <button><a href="/pokedex">Back to Home</a></button>
     </div>
 </body>
