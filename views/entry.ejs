@@ -16,44 +16,36 @@
 
     <h1>View Pokemon</h1>
 
-    <button id="edit">Edit Pokemon</button>
 
     <form action="/pokedex" method="GET">
+      <button id="edit" type="button">Edit Pokemon</button>
 
     <table>
         <tr><td name="name" id="name"><%=pokemonData.name%></td></tr>
-        <tr><td name="index"><%=pokemonData.id%></td></tr>
+        <tr><td ><%=pokemonData.id%></td></tr>
         <tr><td><%=pokemonData.type[0]%></td></tr>
         <tr><td><img style="height:6em;" src="<%=pokemonData.img%>" alt="<%=pokemonData.name%> Image"></td></tr>
     </table>
-
-    <div id="home"><input type="submit" value="Back to Home"></div>
-
   </form>
+
+  <a href="/pokedex"><button>Back to Home</button></a>
 
     <script>
       const index = <%=pokemonData.id - 1%>
       let editMode = false;
-      const home = document.querySelector('#home');
       let pokemonName = '<%=pokemonData.name%>';
       const editButton = document.querySelector('#edit');
-      const name = document.querySelector('#name');
+      const nameDisplay = document.querySelector('#name');
       const form = document.querySelector('form');
 
       editButton.addEventListener('click', () => {
         if (editMode) {
-          form.action = `/pokedex?name=${pokemonName}&index=${index}&_method=PUT`;
-          form.method = 'POST'
-          pokemonName = name.firstChild.value;
-          home.innerHTML = '<input type="submit" value="Back to Home"/>'
-          editButton.textContent = 'Edit Pokemon';
-          name.innerHTML = pokemonName;
+          form.submit();
         } else {
-          form.action = '/pokedex';
-          form.method = 'GET'
-          name.innerHTML = `<input type="text" value="${pokemonName}" />`
-          home.innerHTML = '<a href="/pokedex"><button>Back to Home</button></a>'
+          form.action = `/pokedex/${index}?_method=PUT`;
+          form.method = 'POST';
           editButton.textContent = 'Save Changes';
+          nameDisplay.innerHTML = `<input name="name" type="text" value="${pokemonName}" />`;
         }
         editMode = !editMode
       })

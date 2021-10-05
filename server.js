@@ -18,13 +18,13 @@ app.use(express.urlencoded({ extended: false }));
 
 // INDUCES
 /*
-  Index
-  New
-  Delete
-  Update
-  Create
-  Edit
-  Show
+Index
+New
+Delete
+Update
+Create
+Edit
+Show
 */
 
 app.get('/pokedex/entry/:pokemonId', (req,res) => {
@@ -70,13 +70,9 @@ app.delete('/pokedex/:indexOfPokemon', (req, res) => {
 })
 
 //update route
-app.put('/pokedex', (req,res) => {
-  console.log('///////////////////\n')
-  console.log(req.body)
-  console.log(req.params)
-  console.log('///////////////////\n')
-  pokemon[req.body.index - 1].name = req.body.name;
-  res.redirect('/pokedex')
+app.put('/pokedex/:index', (req,res) => {
+  pokemon[req.params.index].name = req.body.name;
+  res.redirect(`/pokedex/entry/${req.params.index}`)
 });
 
 // Create Route
