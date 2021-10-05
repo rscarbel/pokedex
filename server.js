@@ -9,8 +9,8 @@ const path = require('path');
 const app = express();
 const methodOverride = require("method-override")
 
-// app.use(express.static('public'))
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'))
+// app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(methodOverride('_method'));
@@ -28,9 +28,9 @@ app.use(express.urlencoded({ extended: false }));
 */
 
 app.get('/pokedex/entry/:pokemonId', (req,res) => {
-  console.log(req.params.pokemonId)
   res.render('entry.ejs', {
-    pokemonData: pokemon[req.params.pokemonId]
+    pokemonData: pokemon[req.params.pokemonId],
+    pokemonIndex: (req.params.pokemonId - 1)
   })
 });
 
@@ -68,6 +68,16 @@ app.delete('/pokedex/:indexOfPokemon', (req, res) => {
   caught.splice(req.params.indexOfPokemon, 1)
   res.redirect('/pokemon')
 })
+
+//update route
+app.put('/pokedex', (req,res) => {
+  console.log('///////////////////\n')
+  console.log(req.body)
+  console.log(req.params)
+  console.log('///////////////////\n')
+  pokemon[req.body.index - 1].name = req.body.name;
+  res.redirect('/pokedex')
+});
 
 // Create Route
 app.post('/pokedex/:indexOfPokemon', (req, res) => {

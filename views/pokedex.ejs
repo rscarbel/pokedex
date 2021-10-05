@@ -7,7 +7,7 @@
   <meta name="author" content="Ryan Scarbel">
   <link rel="stylesheet" href="assets/css/normalize.css">
   <link rel="stylesheet" href="assets/css/skeleton.css">
-  <style>#headings:hover{background-color: rgb(255, 238, 238);cursor:default;}</style>
+  <style>#headings:hover{background-color: rgb(255, 238, 238);cursor:default;}body{background-color: rgb(241, 255, 238);}</style>
   <title>Pokedex</title>
 </head>
 <body>
@@ -18,10 +18,9 @@
       <p>Number of pokemon caught: <%=caught.length%></p>
       <div style="margin-left:25px;display:flex;flex-direction: column;">
         <h5 style="margin:auto;">Actions</h5>
-        <a href="/pokedex/new"></a><button style="color:green;">Add Pokemon</button></a>
+        <a href="/pokedex/new"><button style="color:green;">Add Pokemon</button></a>
         <%if (caught.length > 0) {%>
-        <a href="/pokedex/release"><button style="color:red;">Release Pokemon</button></a>
-        <a href="/pokedex/edit"><button style="color:blue;">Edit Pokemon</button></a><%}%>
+        <a href="/pokedex/release"><button style="color:red;">Release Pokemon</button></a><%}%>
       </div>
     </div>
     <table>

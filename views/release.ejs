@@ -5,14 +5,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Ryan Scarbel">
-  <link rel="stylesheet" href="assets/css/normalize.css">
-  <link rel="stylesheet" href="assets/css/skeleton.css">
+  <link rel="stylesheet" href="../../assets/css/normalize.css">
+  <link rel="stylesheet" href="../../assets/css/skeleton.css">
   <title>Release Pokemon</title>
 </head>
 <body>
   <div class="container">
     <h1>Release Pokemon</h1>
-
+    <button><a href="/pokedex">Back to Home</a></button>
     <table>
       <tr id="headings">
         <th>Name</th>
@@ -24,7 +24,7 @@
         <td><%=pokemon[caught[i] - 1].name%></td>
         <td style="display:flex;justify-content: center;"><img style="height:3em;" src="<%=pokemon[caught[i] - 1].img%>" alt="<%=pokemon[caught[i] - 1].name%> Image"></td>
         <form action="/pokedex/<%=i%>?_method=DELETE" method="POST">
-        <td><input type="Submit" value="x" style="padding: 5px 10px;border-radius:50%;background-color: rgb(190,0,0);color:#FFFFFF;cursor:pointer;"></td></form>
+        <td><input type="Submit" value="x" style="padding: 0 13px;border-radius:50%;background-color: rgb(190,0,0);color:#FFFFFF;cursor:pointer;"></td></form>
         <!-- <td><img style="" src="assets/trashcanIcon.png" alt="Trash can icon"></td> -->
       </tr>
       <%}%>
