@@ -23,9 +23,8 @@
       <tr>
         <td><%=pokemon[caught[i] - 1].name%></td>
         <td style="display:flex;justify-content: center;"><img style="height:3em;" src="<%=pokemon[caught[i] - 1].img%>" alt="<%=pokemon[caught[i] - 1].name%> Image"></td>
-        <form action="/pokedex/<%=i%>?_method=DELETE" method="POST">
-        <td><input type="Submit" value="x" style="padding: 0 13px;border-radius:50%;background-color: rgb(190,0,0);color:#FFFFFF;cursor:pointer;"></td></form>
-        <!-- <td><img style="" src="assets/trashcanIcon.png" alt="Trash can icon"></td> -->
+        <form id="form-<%=i%>" action="/pokedex/<%=i%>?_method=DELETE" method="POST">
+        <td><img onclick="document.querySelector('#form-<%=i%>').submit()" style="height:2em;background-color:#FFFFFF;border-radius:3px 3px 7px 7px;" src="../../assets/trashcanIcon.png" alt="Trash can icon"></td></form>
       </tr>
       <%}%>
     </table>

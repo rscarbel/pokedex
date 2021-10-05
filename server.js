@@ -10,7 +10,6 @@ const app = express();
 const methodOverride = require("method-override")
 
 app.use(express.static('public'))
-// app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(methodOverride('_method'));
@@ -80,14 +79,16 @@ app.post('/pokedex/:indexOfPokemon', (req, res) => {
   let isHighestIndex = true;
   for (let i = 0;i < caught.length; i++) {
     if (caught[i] > req.params.indexOfPokemon) {
-      caught.splice(i,0,pokemon[req.params.indexOfPokemon - 1]);
+      caught.splice(i,0,pokemon[req.params.indexOfPokemon].id);
       isHighestIndex = false
       break;
     }
   }
   if (isHighestIndex) {
-    caught.push(pokemon[req.params.indexOfPokemon - 1]);
+    caught.push(pokemon[req.params.indexOfPokemon].id);
   }
+  console.log(req.params.indexOfPokemon)
+  console.log(caught)
   res.redirect("/pokemon")
 })
 

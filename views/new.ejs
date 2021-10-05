@@ -13,6 +13,25 @@
   <div class="container">
     <h1>Add Pokemon</h1>
     <button><a href="/pokedex">Back to Home</a></button>
+    <table>
+      <tr id="headings">
+        <th>Name</th>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Image</th>
+        <th></th>
+      </tr>
+      <%for (let i = 0; i < pokemon.length - 1; i++ ){%>
+      <tr>
+        <td><%=pokemon[i].name%></td>
+        <td><%=pokemon[i].id%></td>
+        <td><%=pokemon[i].type[0]%></td>
+        <td><img style="height:3em;" src="<%=pokemon[i].img%>" alt="<%=pokemon[i].name%> Image"></td>
+        <form action="/pokedex/<%=i%>?_method=POST" method="POST">
+          <td><input type="Submit" value="+" style="padding: 0 13px;border-radius:50%;background-color: rgb(0, 160, 0);color:#FFFFFF;cursor:pointer;"></td></form>
+      </tr>
+      <%}%>
+    </table>
     </div>
 </body>
 </html>
